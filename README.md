@@ -1,18 +1,17 @@
 # Users-tables
 ___
 ## association
-has_many :groups, through: :user_groups
-has_many :posts
+- has_many :user_groups
+- has_many :groups, through: :user_groups
+- has_many :posts
 ___
 ## column/type
-- user_name
-- password
-- group/reference
 ___
 
 # Groups-tablee
 ___
 ## association
+- has_many :user_groups
 - has_many :users, through: :user_groups
 - has_many :posts
 ___
@@ -26,7 +25,7 @@ ___
 - belongs_to :group
 ___
 ## column/type
-- post/text
+- message/text
 - text_image/text
 - user/reference
 - group/reference
