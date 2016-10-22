@@ -1,24 +1,41 @@
-# README
+# Users-tables
+___
+## association
+- has_many :user_groups
+- has_many :groups, through: :user_groups
+- has_many :posts
+___
+## column/type
+___
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Groups-tablee
+___
+## association
+- has_many :user_groups
+- has_many :users, through: :user_groups
+- has_many :posts
+___
+## column/type
+- group_name/string
 
-Things you may want to cover:
+# Posts-tables
+___
+## association
+- belongs_to :user
+- belongs_to :group
+___
+## column/type
+- message/text
+- text_image/text
+- user/reference
+- group/reference
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# User_Group-tables
+___
+## association
+- belongs_to :user
+- belongs_to :group
+___
+## column/type
+- user/reference
+- group/reference
