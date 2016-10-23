@@ -149,7 +149,7 @@
         left: 300px;
         padding: 20px 40px;
         background-color: #ddd;
-        form.new_message{
+        .new_message{
           .chat-footer__body{
             float: left;
             width: 100%;
@@ -169,11 +169,13 @@
               line-height: 50px;
               text-align: center;
               background-color: white;
-              input#message_image{
-              display: none;
+              right: 20%;
+              top: 0;
+              .message_image{
+                display: none;
               }
             }
-            input{
+            .submit-factor{
               position: absolute;
               margin: 0 auto;
               right: 30px;
@@ -182,6 +184,7 @@
               color: #fff;
               background-color: #38aef0;
               text-align: center;
+              top: 0;
             }
           }
         }
