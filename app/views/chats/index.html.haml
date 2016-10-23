@@ -12,13 +12,15 @@
       %ul.chat-groups
         %li.chat-group
           %a.chat-group__link{:href => "/chat_groups/952/messages"}
-            %p.chat-group__name テストのグループ
+            %p.chat-group__name
+              = @group.group_name
             %p.chat-group__message
               画像を送信しました。
     .chat-main
       .chat-header.clearfix
         .chat-header--left
-          %h2 group
+          %h2
+            = @group.group_name
           %p.chat-header__users
             Members:
             %span.chat-header__user 

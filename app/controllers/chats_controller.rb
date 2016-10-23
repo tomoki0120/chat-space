@@ -3,6 +3,7 @@ class ChatsController < ApplicationController
   def index
     @posts = Post.new
     @user = User.find(1)
+    @group = Group.find(2)
   end
 
   def create
