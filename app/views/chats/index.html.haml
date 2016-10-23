@@ -1,0 +1,41 @@
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user.clearfix
+        %h5 aaaaaa
+        .chat-user__actions
+          %a.chat-user__action{:href => "/chat_groups/new"}
+            %i.fa.fa-pencil-square-o
+          %a.chat-user__action{:href => "/users/edit"}
+            %i.fa.fa-cog
+      %ul.chat-groups
+        %li.chat-group
+          %a.chat-group__link{:href => "/chat_groups/952/messages"}
+            %p.chat-group__name group
+            %p.chat-group__message
+              画像を送信しました。
+    .chat-main
+      .chat-header.clearfix
+        .chat-header--left
+          %h2 group
+          %p.chat-header__users
+            Members:
+            %span.chat-header__user aaaaaa
+            %span.chat-header__user 山田太郎
+        .chat-header--right
+          %a.chat-header__edit-btn{:href => "/chat_groups/952/edit"} Edit
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name aaaaaa
+              %p.chat-message__time 2016/10/22 05:25:02
+            %p.chat-message__body aaaaaaaaa
+      .chat-footer
+        %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/chat_groups/952/messages", :enctype => "multipart/form-data", :method => "post"}
+          .chat-footer__body
+            %textarea#message_body{:name => "message[body]", :placeholder => "type a message", :row => "1"}
+            %label.chat-footer__file
+              %input#message_image{:name => "message[image]", :type => "file"}/
+              %i.fa.fa-image
+            %input{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
