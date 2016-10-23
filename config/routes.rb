@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :chats, only: :index
+  root 'chats#index'
+  resources :chats, only: [:index,:create]
 end
