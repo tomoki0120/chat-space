@@ -50,3 +50,4 @@ gem 'devise','4.2.0'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
+gem 'pry-rails'
