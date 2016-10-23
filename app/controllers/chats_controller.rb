@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
 
   def index
     @posts = Post.new
+    @user = User.find(1)
   end
 
   def create
