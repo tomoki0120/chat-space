@@ -32,10 +32,11 @@
               %p.chat-message__time 2016/10/22 05:25:02
             %p.chat-message__body aaaaaaaaa
       .chat-footer
-        %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/chat_groups/952/messages", :enctype => "multipart/form-data", :method => "post"}
-          .chat-footer__body
-            %textarea#message_body{:name => "message[body]", :placeholder => "type a message", :row => "1"}
-            %label.chat-footer__file
-              %input#message_image{:name => "message[image]", :type => "file"}/
-              %i.fa.fa-image
-            %input{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        = form_for @posts,url: chats_path do |f|
+          .new_message
+            .chat-footer__body
+              =f.text_area :message, id:"message_body", placeholder: "type a message", row: "1"
+              %label.chat-footer__file
+                = f.file_field :text_image, class: "message_image"
+                %i.fa.fa-image
+              = f.submit "SEND",class: "submit-factor"
