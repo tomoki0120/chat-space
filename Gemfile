@@ -51,3 +51,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'pry-rails'
+gem 'bootstrap-sass'
+gem 'carrierwave'
