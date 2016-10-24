@@ -1,5 +1,5 @@
 .layout-notification
-  .chat
+  .chat.clsarfix
     .chat-side
       .chat-user.clearfix
         %h5
@@ -14,8 +14,9 @@
           %a.chat-group__link{:href => "/chat_groups/952/messages"}
             %p.chat-group__name
               = @group.group_name
+            = render 'layouts/message'
             %p.chat-group__message
-              画像を送信しました。
+
     .chat-main
       .chat-header.clearfix
         .chat-header--left
@@ -30,15 +31,22 @@
           %a.chat-header__edit-btn{:href => "/chat_groups/952/edit"} Edit
       .chat-body
         %ul.chat-messages
-          %li.chat-message
-            .chat-message__header.clearfix
-              %p.chat-message__name 
-                =@user.nickname
-              %p.chat-message__time 2016/10/22 05:25:02
-            %p.chat-message__body 
-            = @user.nickname
+          - @posts.each do |post|
+            %li.chat-message
+              .chat-message__header.clearfix
+                %p.chat-message__name 
+                  = post.user.nickname
+                %p.chat-message__time 
+                  = post.created_at.strftime("%Y年 %m月 %d日")
+              %p.chat-message__body 
+                = post.message
+                %p.chat-message__photo
+                  = image_tag post.text_image,class: "text_image"
       .chat-footer
-        = form_for @posts,url: chats_path do |f|
+        = form_for @post,url: chats_path do |f|
+          - if @post.errors.any?
+            #error_explanation
+              %h2 No text
           .new_message
             .chat-footer__body
               =f.text_area :message, id:"message_body", placeholder: "type a message", row: "1"

@@ -1,0 +1,6 @@
+- flash.each do |key, value|
+  %a{href: "#", "data-dismiss": "alert", class: "close"}×
+  - if key == "success"
+    = content_tag :div, value, class: "alert override2 alert-#{key}"
+  - if key == "warning"
+    = content_tag :div, value, class: "alert override1 alert-#{key}"
