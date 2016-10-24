@@ -160,6 +160,9 @@
         padding: 20px 40px;
         background-color: #ddd;
         z-index: 2;
+          h2#error_explanation {
+            color: #f00;
+          }
         .new_message{
           .chat-footer__body{
             float: left;

@@ -44,9 +44,6 @@
                   = image_tag post.text_image,class: "text_image"
       .chat-footer
         = form_for @post,url: chats_path do |f|
-          - if @post.errors.any?
-            #error_explanation
-              %h2 No text
           .new_message
             .chat-footer__body
               =f.text_area :message, id:"message_body", placeholder: "type a message", row: "1"

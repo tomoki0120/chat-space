@@ -10,9 +10,9 @@ class ChatsController < ApplicationController
   def create
     post = Post.new(post_params)
     if post.save
-      redirect_to :root,success: 'Upadate Complete'
+      redirect_to :root,success: '投稿されました！'
     else
-      redirect_to :root,warning: 'Not complete'
+      redirect_to :root,warning: 'Messageを書いてください！'
     end
   end
 
