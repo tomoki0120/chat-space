@@ -12,7 +12,9 @@ class ChatsController < ApplicationController
     if post.save
       redirect_to :root,success: '投稿されました！'
     else
-      flash[:warning] = post.errors.full_messages.first
+      post.errors.full_messages.each do |error|
+        flash[:warning] = error
+      end
       redirect_to :root
     end
   end
