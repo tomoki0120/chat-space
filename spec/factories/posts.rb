@@ -9,6 +9,6 @@ FactoryGirl.define do
       group_id         2
       created_at      '2016-10-24 13:36:59'
       updated_at      '2016-10-24 13:36:59'
-      text_image { fixture_file_upload("spec/fixtures/img/sample.jpeg", "image/jpeg") }
+      text_image { fixture_file_upload("spec/fixtures/img/sample.jpeg") }
     end
 end
