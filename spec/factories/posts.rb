@@ -2,13 +2,17 @@ include ActionDispatch::TestProcess
 FactoryGirl.define do
 
     factory :post do
-      extend ActionDispatch::TestProcess
-      id               1
-      message         'テスト'
-      user_id          1
-      group_id         2
-      created_at      '2016-10-24 13:36:59'
-      updated_at      '2016-10-24 13:36:59'
+      created_at {Faker::Date.between(2.days.ago, Date.today)}
+      updated_at {Faker::Date.between(2.days.ago, Date.today)}
+    end
+
+    trait :message do
+      message {Faker::Lorem.sentence }
+    end
+
+
+    trait :text_image do
       text_image { fixture_file_upload("spec/fixtures/img/sample.jpeg") }
     end
+
 end
