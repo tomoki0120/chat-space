@@ -1,0 +1,44 @@
+/*flash*/
+.alert-error {
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+ }
+
+.alert-alert {
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+ }
+
+.alert-success {
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+ }
+
+
+.alert.override1{
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: rgba(255,0,0,0.2);
+}
+
+
+.alert.override2{
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: rgba(0,0,255,0.2);
+}
