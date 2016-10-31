@@ -1,13 +1,13 @@
 .layout-notification
-  .chat.clsarfix
+  .chat.clearfix
     .chat-side
       .chat-user.clearfix
         %h5
-          = @user.nickname
+          = current_user.nickname
         .chat-user__actions
           %a.chat-user__action{:href => "/chat_groups/new"}
             %i.fa.fa-pencil-square-o
-          %a.chat-user__action{:href => "/users/edit"}
+          =link_to edit_user_registration_path,class: ".chat-user__action" do
             %i.fa.fa-cog
       %ul.chat-groups
         %li.chat-group
@@ -25,7 +25,7 @@
           %p.chat-header__users
             Members:
             %span.chat-header__user 
-            = @user.nickname
+            = current_user.nickname
             %span.chat-header__user 山田太郎くん
         .chat-header--right
           %a.chat-header__edit-btn{:href => "/chat_groups/952/edit"} Edit

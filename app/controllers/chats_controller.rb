@@ -1,9 +1,10 @@
 class ChatsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @post = Post.new
     @posts = Post.order('created_at DESC')
-    @user = User.find(1)
     @group = Group.find(2)
   end
 
