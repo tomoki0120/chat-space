@@ -4,17 +4,17 @@ class ChatsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.order('created_at DESC')
+    @posts = current_user.posts.order('created_at DESC')
     @group = Group.find(2)
   end
 
   def create
     post = Post.new(post_params)
     if post.save
-      redirect_to :root,success: '投稿されました！'
+      redirect_to :root,notice: '投稿されました！'
     else
       post.errors.full_messages.each do |error|
-        flash[:warning] = error
+        flash[:alert] = error
       end
       redirect_to :root
     end
@@ -22,6 +22,6 @@ class ChatsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:message,:text_image).merge(group_id: 2,user_id: 1)
+    params.require(:post).permit(:message,:text_image).merge(group_id: 2,user_id: current_user.id)
   end
 end
