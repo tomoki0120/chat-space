@@ -5,45 +5,27 @@
         %h5
           = current_user.nickname
         .chat-user__actions
-          %a.chat-user__action{:href => "/chat_groups/new"}
+          =link_to new_group_path,class: "chat-user__action" do
             %i.fa.fa-pencil-square-o
-          =link_to edit_user_registration_path,class: ".chat-user__action" do
+          =link_to edit_user_registration_path,class: "chat-user__action" do
             %i.fa.fa-cog
       %ul.chat-groups
-        %li.chat-group
-          %a.chat-group__link{:href => "/chat_groups/952/messages"}
-            %p.chat-group__name
-              = @group.group_name
-            = render 'layouts/message'
-            %p.chat-group__message
-
+        = render partial: 'shared/group',collection: @groups
     .chat-main
       .chat-header.clearfix
         .chat-header--left
           %h2
             = @group.group_name
-          %p.chat-header__users
-            Members:
-            %span.chat-header__user 
-            = current_user.nickname
-            %span.chat-header__user 山田太郎くん
+            %p.chat-header__users
+              Members:
+              = render partial: 'user', collection: @group.users
         .chat-header--right
-          %a.chat-header__edit-btn{:href => "/chat_groups/952/edit"} Edit
+          =link_to "Edit", edit_group_path(@group),class: "chat-header__edit-btn"
       .chat-body
         %ul.chat-messages
-          - @posts.each do |post|
-            %li.chat-message
-              .chat-message__header.clearfix
-                %p.chat-message__name 
-                  = current_user.nickname
-                %p.chat-message__time 
-                  = post.created_at.strftime("%Y年 %m月 %d日")
-              %p.chat-message__body 
-                = post.message
-                %p.chat-message__photo
-                  = image_tag post.text_image,class: "text_image"
+          = render @posts
       .chat-footer
-        = form_for @post,url: chats_path do |f|
+        = form_for @post,url: group_chats_path do |f|
           .new_message
             .chat-footer__body
               =f.text_area :message, id:"message_body", placeholder: "type a message", row: "1"
