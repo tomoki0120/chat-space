@@ -1,6 +1,5 @@
 class ChatsController < ApplicationController
 
-  before_action :set_group, only: [:edit,:update]
 
   def index
     @post = Post.new
@@ -11,14 +10,22 @@ class ChatsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    if post.save
-      redirect_to action: "index",notice: '投稿されました！'
-    else
-      post.errors.full_messages.each do |error|
-        flash[:alert] = error
+      if post.save
+        respond_to do |format|
+         format.html {redirect_to action: "index",notice: '投稿されました！'}
+         format.json {render json:{
+           name: post.user.nickname,
+           date: post.created_at.strftime("%Y年 %m月 %d日"),
+           message: post.message,
+           photo: post.text_image
+           }}
+         end
+      else
+        post.errors.full_messages.each do |error|
+          flash[:alert] = error
+        end
+        redirect_to action: "index"
       end
-      redirect_to action: "index"
-    end
   end
 
   private
