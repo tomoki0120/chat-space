@@ -141,7 +141,6 @@
                 float: left;
                 padding-left: 10px;
                 margin-bottom: 10px;
-                font-weight: 600;
                 color: #aaa;
                 font-size: 12px;
               }
@@ -176,7 +175,7 @@
             height: 50px;
             position: relative;
             textarea{
-              width: 80%;
+              width: 85%;
               height: 50px;
               border: 0;
               line-height:20px;
@@ -190,7 +189,7 @@
               line-height: 50px;
               text-align: center;
               background-color: white;
-              right: 20%;
+              right: 12%;
               top: 0;
               .message_image{
                 display: none;
@@ -199,7 +198,7 @@
             .submit-factor{
               position: absolute;
               margin: 0 auto;
-              right: 30px;
+              right: 10px;
               width: 100px;
               line-height: 45px;
               color: #fff;
