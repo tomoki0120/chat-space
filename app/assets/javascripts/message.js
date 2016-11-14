@@ -13,7 +13,7 @@ function post_message(data){
 };
 
 $(function() {
-  $('#post-form').on('submit', function(e) {
+  $('#new_post').on('submit', function(e) {
     e.preventDefault();
     var form = $(this);
     var post_url = form.prop('action');
