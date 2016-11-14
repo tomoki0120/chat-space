@@ -30,7 +30,8 @@ $(function() {
         $("#submit_body").attr('disabled', false);
       })
       .fail(function(){
-        alert("messageを入力してください")
+        alert("messageを入力してください");
+        $("#submit_body").attr('disabled', false);
       });
   });
 });
