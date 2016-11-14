@@ -23,13 +23,13 @@
           =link_to "Edit", edit_group_path(@group),class: "chat-header__edit-btn"
       .chat-body
         %ul.chat-messages
-          = render @posts
+          = render partial: 'post', collection: @posts
       .chat-footer
-        = form_for @post,url: group_chats_path do |f|
+        = form_for @post,url: group_chats_path  do |f|
           .new_message
             .chat-footer__body
               =f.text_area :message, id:"message_body", placeholder: "type a message", row: "1"
               %label.chat-footer__file
-                = f.file_field :text_image, class: "message_image"
+                = f.file_field :text_image, class: "message_image",id: "image_body"
                 %i.fa.fa-image
-              = f.submit "SEND",class: "submit-factor"
+              = f.submit "SEND",class: "submit-factor",id: "submit_body"
