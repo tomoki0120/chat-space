@@ -1,15 +1,12 @@
 function post_message(data){
-  var add_message = {
-    "<li class="chat-message">\
-      <div class="chat-message__header clearfix">\
-        <p class="chat-message__name"> data.name</p>\
-        <p class="chat-message__time"> data.date</p>\
+  var add_message ="<li class='chat-message'>\
+  <div class='chat-message__header clearfix'>\
+        <p class='chat-message__name'>"+data.name+"</p>\
+        <p class='chat-message__time'>"+data.date+"</p>\
       </div>\
-      <p class="chat-message__body"> data.message</p>\
-      <p class="chat-message__photo"> data.photo</p>\
-    </li>"
-  };
-  $("#js-post").append(add_message);
+      <p class='chat-message__body'>"+data.message+"</p>\
+      </li>"
+  $('ul.chat-messages').append(add_message);
 };
 
 $(function() {
@@ -17,21 +14,22 @@ $(function() {
     e.preventDefault();
     var form = $(this);
     var post_url = form.prop('action');
-    var form_data = from.get(0)
-    var formdata = new Formdata(form_data);
-
+    var form_data = form.get(0)
+    var formdata = new FormData(form_data);
     $.ajax({
       url: post_url + '.json',
       type: 'post',
       dataType: 'json',
-      data: formdata
+      data: formdata,
       contentType: false,
       processData: false,
-    });
+    })
       .done(function(data){
         post_message(data)
-      });
-      .fall(function(){
+        $('#new_post').get(0).reset();
+        $("#submit_body").attr('disabled', false);
+      })
+      .fail(function(){
         alert("messageを入力してください")
       });
   });
