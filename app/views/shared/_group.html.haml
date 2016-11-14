@@ -2,5 +2,6 @@
   = link_to group_chats_path(group.id),class: "chat-group__link" do
     %p.chat-group__name
       = group.group_name
-    = render 'layouts/message'
+  - if group.posts.last.present?
     %p.chat-group__message
+      = group.posts.last.message
