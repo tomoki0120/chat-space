@@ -6,35 +6,40 @@
   }
 }
 
-// body
-
 .layout-notification{
   .chat{
     @include clearfix();
     min-width: 980px;
     height: 100%;
+    background-color: #fafafa;
     .chat-side {
       @include clearfix();
+      overflow: scroll;
       float: left;
+      height: 100vh;
       width: 300px;
-      min-height: 200vh;
       background-color: #2f3e51;
       .chat-user {
         @include clearfix();
+        height: 100px;
         padding: 20px;
         color: #fff;
         background-color: #253141;
+        font-family: "Hiragino Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,Arial, sans-serif;
         h5 {
         float: left;
-        line-height: 60px;
+        line-height: 50px;
         letter-spacing: 2px;
         font-size: 16px;
         }
         .chat-user__actions{
+          margin: 15px 0 15px 3px;
           float: right;
+          display: inline-block;
+          line-height: 40px;
+          font-size: 20px;
           a.chat-user__action{
             color: #fff;
-            line-height: 60px;
           }
         }
       }
@@ -44,18 +49,18 @@
         color: #fff;
         list-style: none;
         li.chat-group{
+          padding: 20px 20px;
           a.chat-group__link{
             display: block;
-            padding: 20px 20px 0;
             color: #fff;
-            p.chat-group__name{
-              display: inline-block;
-              font-size: 15px;
-              margin-bottom: 5px;
-            }
-            p.chat-group__message{
-              font-size: 11px;
-            }
+          }
+          p.chat-group__name{
+            display: inline-block;
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+          p.chat-group__message{
+            font-size: 11px;
           }
         }
       }
@@ -72,10 +77,9 @@
         padding-left: 40px;
         background-color: #fff;
         border-bottom: 1px solid #eee;
-        position: absolute;
-        background-color: #ddd;
+        position: fixed;
         z-index: 2;
-        height: 120px;
+        height: 100px;
         .chat-header--left{
           float: left;
           h2{
@@ -110,13 +114,13 @@
         }
       }
       .chat-body{
+        overflow: scroll; 
         position: relative;
         padding: 140px 0;
-        height: 80vh;
+        height: 90vh;
         z-index: 1;
         ul.chat-messages{
           position: absolute;
-          right: 40px;
           left: 40px;
           padding: 0;
           list-style: none;
