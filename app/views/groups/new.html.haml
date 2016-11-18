@@ -4,7 +4,7 @@
     #new_chat_group.new_chat_group
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_name"} グループ名
+        %label.chat-group-form__label グループ名
       .chat-group-form__field--right
         =f.text_area :group_name,id: "chat_group_name",class: "chat-group-form__input",placeholder: "グループ名を入力してください"
     .chat-group-form__field.clearfix
@@ -12,9 +12,13 @@
         %label.chat-group-form__label チャットメンバーを追加
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          = collection_check_boxes(:group, :user_ids, User.all, :id, :nickname) do |b|
-            =b.check_box + b.label
+          %input#chat_user_name.chat-group-form__input{placeholder: "ユーザー名を入力してください"}
         #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        %label.chat-group-form__label チャットメンバー
+      .chat-group-form__field--right
+        #chat-group-users
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
