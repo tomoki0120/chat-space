@@ -9,34 +9,36 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    gon.users = User.order('created_at DESC')
   end
 
 
   def create
     group = Group.new(group_params)
     if group.save
-      redirect_to :root,notice: 'グループが作成されました'
-    else
-      group.errors.full_messages.each do |error|
-        flash[:alert] = error
+        redirect_to group_chats_path(group),notice:'グループが作成されました'
+      else
+        group.errors.full_messages.each do |error|
+          flash[:alert] = error
+        end
+        redirect_to action: "new"
       end
-      redirect_to action: "new"
-    end
   end
 
 
   def edit
+    @members = @group.users
   end
 
   def update
-     if @group.update(group_params)
-      redirect_to :root,notice: 'グループが編集されました'
-    else
-      group.errors.full_messages.each do |error|
-        flash[:alert] = error
+    if @group.update(group_params)
+        redirect_to  group_chats_path(@group),notice: 'グループが編集された'
+      else
+        group.errors.full_messages.each do |error|
+          flash[:alert] = error
+        end
+        redirect_to action: "edit"
       end
-      redirect_to action: "edit"
-    end
   end
 
   private
@@ -51,11 +53,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:group_name,{:user_ids => []})
   end
-
-
-
-
-
-
-
 end
