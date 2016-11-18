@@ -58,3 +58,4 @@ gem 'pry-rails'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rspec-rails', "~> 3.1.0"
+gem 'gon'
