@@ -1,0 +1,4 @@
+.chat-group-user.clearfix
+  %input{multiple: "multiple",type: "hidden",name: "group[user_ids][]", value: "#{member.id}",id: "delete_user_name"}
+    %p.chat-group-user__name "#{member.nickname}"
+    %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove{"data-user-id": "#{member.id}"}削除

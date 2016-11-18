@@ -25,7 +25,7 @@ $(function() {
       processData: false,
     })
       .done(function(data){
-        post_message(data)
+        post_message(data);
         $('#new_post').get(0).reset();
         $("#submit_body").attr('disabled', false);
       })
