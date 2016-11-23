@@ -6,7 +6,14 @@ function post_message(data){
       </div>\
       <p class='chat-message__body'>"+data.message+"</p>\
       </li>"
-  $('ul.chat-messages').append(add_message);
+  var image ="<p class='chat-message__photo'><img class='text_image' src = " + data.image +"></p>"
+
+  if (data.image != null){
+    $('ul.chat-messages').append(add_message,image);
+  }else{
+    $('ul.chat-messages').append(add_message);
+  }
+
 };
 
 $(function() {
