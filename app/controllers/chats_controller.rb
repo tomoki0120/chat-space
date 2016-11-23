@@ -16,7 +16,8 @@ class ChatsController < ApplicationController
          format.json {render json:{
            name: post.user.nickname,
            date: post.created_at.strftime("%Y年 %m月 %d日"),
-           message: post.message
+           message: post.message,
+           image: post.text_image.url
            }}
          end
       else
