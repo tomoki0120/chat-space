@@ -128,7 +128,6 @@
           list-style: none;
           overflow-y: scroll;
           li.chat-message{
-            margin-bottom: 40px;
             .chat-message__header{
               @include clearfix();
               line-height: 20px;
