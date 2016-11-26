@@ -4,18 +4,9 @@ class ChatsController < ApplicationController
     @group = Group.find(params[:group_id])
     @posts = @group.posts.order('created_at ASC')
     @groups = Group.order('created_at DESC')
-    users = @posts.map(&:user)
-    images = @posts.map(&:text_image)
-    dates =@posts.map(&:created_at)
     respond_to do |format|
-      format.html {}
-      format.json {render json:{
-        nicknames: users.map(&:nickname),
-        posts: @posts,
-        messages: @posts.map(&:message),
-        images: images.map(&:url),
-        date: dates.map{|date| date.strftime("%Y/ %m/ %d %T")}
-      }}
+      format.html
+      format.json
     end
   end
 
