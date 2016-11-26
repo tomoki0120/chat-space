@@ -2,9 +2,9 @@
   .chat-message__header.clearfix
     %p.chat-message__name
       = post.user.nickname
-    %p.chat-message__time 
-      = post.created_at.strftime("%Y/ %m/ %d %T")
-  %p.chat-message__body 
+    %p.chat-message__time
+      = post.post_date
+  %p.chat-message__body
     = post.message
     %p.chat-message__photo
       = image_tag post.text_image,class: "text_image"
