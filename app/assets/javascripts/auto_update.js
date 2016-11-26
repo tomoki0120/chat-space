@@ -8,6 +8,7 @@ $(function() {
       </div>\
       <p class='chat-message__body'>"+data.messages[i]+"</p>\
       </li>"
+
       var image ="<p class='chat-message__photo'><img class='text_image' src = " + data.images[i] +"></p>"
 
       if (data.images[i] != null){
@@ -25,8 +26,9 @@ $(function() {
       })
       .done(function(data) {
         $('ul.chat-messages').empty();
-          post_message(data);
-          console.log("更新されたでごわす");
+        post_message(data);
+        $('.chat-body').animate({scrollTop:$('.chat-body')[0].scrollHeight},'fast');
+        console.log("更新されたでごわす");
       })
       .fail(function(){
       });
