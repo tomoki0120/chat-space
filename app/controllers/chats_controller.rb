@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+
   def index
     @post = Post.new
     @group = Group.find(params[:group_id])
@@ -17,7 +18,7 @@ class ChatsController < ApplicationController
          format.html {redirect_to action: "index",notice: '投稿されました！'}
          format.json {render json:{
            name: post.user.nickname,
-           date: post.created_at.strftime("%Y/ %m/ %d %T"),
+           date: post.post_date,
            message: post.message,
            image: post.text_image.url
            }}
