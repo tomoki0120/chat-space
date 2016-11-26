@@ -26,6 +26,7 @@ $(function() {
       .done(function(data) {
         $('ul.chat-messages').empty();
           post_message(data);
+          console.log("更新されたでごわす");
       })
       .fail(function(){
       });
